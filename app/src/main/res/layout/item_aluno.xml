@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<TextView android:id="@+id/item_aluno_nome"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="24sp"
-    android:layout_margin="8dp"
-    tools:text="Alex" />
+    <TextView android:id="@+id/item_aluno_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="8dp"
+        tools:text="Alex" />
 
     <TextView android:id="@+id/item_aluno_telefone"
         android:layout_width="match_parent"

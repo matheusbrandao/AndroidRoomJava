@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 @Entity
 public class Aluno implements Serializable {
@@ -14,7 +15,6 @@ public class Aluno implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
     private String nome;
-    private String telefone;
     private String email;
     private Calendar momentoDeCadastro = Calendar.getInstance();
 
@@ -24,10 +24,6 @@ public class Aluno implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public void setEmail(String email) {
@@ -46,22 +42,12 @@ public class Aluno implements Serializable {
         return nome;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public Calendar getMomentoDeCadastro() {
         return momentoDeCadastro;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return nome + " - " + telefone;
     }
 
     public boolean temIdValido() {
