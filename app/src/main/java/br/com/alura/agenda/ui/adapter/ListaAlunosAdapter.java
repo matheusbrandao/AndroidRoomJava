@@ -9,10 +9,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import br.com.alura.agenda.R;
+import br.com.alura.agenda.asyncTask.BuscaPrimeiroTelefoneDoAlunoTask;
 import br.com.alura.agenda.database.AgendaDatabase;
 import br.com.alura.agenda.database.dao.TelefoneDAO;
 import br.com.alura.agenda.model.Aluno;
-import br.com.alura.agenda.model.Telefone;
 
 public class ListaAlunosAdapter extends BaseAdapter {
 
@@ -53,10 +53,8 @@ public class ListaAlunosAdapter extends BaseAdapter {
         nome.setText(aluno.getNome());
         TextView telefone = view.findViewById(R.id.item_aluno_telefone);
 
-        Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno(aluno.getId());
-        if (primeiroTelefone instanceof Telefone)
-            if (primeiroTelefone.getNumero() instanceof String)
-                telefone.setText(primeiroTelefone.getNumero());
+        new BuscaPrimeiroTelefoneDoAlunoTask(dao, aluno.getId(),
+                telefoneEncontrado -> telefone.setText(telefoneEncontrado.getNumero())).execute();
     }
 
     private View criaView(ViewGroup viewGroup) {
