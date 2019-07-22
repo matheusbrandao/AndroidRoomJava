@@ -23,6 +23,13 @@ abstract class BaseAlunoComTelefoneTask extends AsyncTask<Void, Void, Void> {
             telefone.setAlunoId(alunoId);
     }
 
+    /*
+        Criação do Listener.
+
+        Quando existente, na chamada da task, o método obriga a criação do mesmo.
+        Isso é utilizado quando necessita a execução de alguma tarefa
+        na activity.
+     */
     public interface FinalizadaListener {
         void quandoFinalizada();
     }

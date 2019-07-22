@@ -77,7 +77,6 @@ class AgendaMigrations {
             database.execSQL("INSERT INTO Aluno_novo (id, nome, email, momentoDeCadastro) " +
                     "SELECT id, nome, email, momentoDeCadastro FROM Aluno");
 
-
             database.execSQL("CREATE TABLE IF NOT EXISTS `Telefone` (" +
                     "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                     "`numero` TEXT, " +

@@ -33,6 +33,13 @@ public class BuscaTodosTelefonesDoAlunoTask extends AsyncTask<Void, Void, List<T
         listener.quandoEncontrados(telefones);
     }
 
+    /*
+        Criação do Listener.
+
+        Quando existente, na chamada da task, o método obriga a criação do mesmo.
+        Isso é utilizado quando necessita a execução de alguma tarefa
+        na activity.
+     */
     public interface TelefonesDoAlunoEncontradoListener{
         void quandoEncontrados(List<Telefone> telefones);
     }

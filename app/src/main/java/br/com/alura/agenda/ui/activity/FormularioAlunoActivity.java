@@ -41,7 +41,7 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_aluno);
 
         AgendaDatabase database = AgendaDatabase.getInstance(this);
-        alunoDAO = database.getRoomAlunoDAO();
+        alunoDAO = database.getAlunoDAO();
         telefoneDAO = database.getTelefoneDAO();
 
         inicializacaoDosCampos();
@@ -101,11 +101,11 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         Telefone telefoneFixo = criaTelefone(campoTelefoneFixo, TipoTelefone.FIXO);
         Telefone telefoneCelular = criaTelefone(campoTelefoneCelular, TipoTelefone.CELULAR);
 
-        if (aluno.temIdValido()) {
+        if (aluno.temIdValido())
             editaAluno(telefoneFixo, telefoneCelular);
-        } else {
+        else
             salvaAluno(telefoneFixo, telefoneCelular);
-        }
+
     }
 
     private Telefone criaTelefone(EditText campoTelefoneFixo, TipoTelefone fixo) {
@@ -114,7 +114,8 @@ public class FormularioAlunoActivity extends AppCompatActivity {
     }
 
     private void salvaAluno(Telefone telefoneFixo, Telefone telefoneCelular) {
-        new SalvaAlunoTask(alunoDAO, aluno, telefoneFixo, telefoneCelular, telefoneDAO, this::finish).execute();
+        new SalvaAlunoTask(alunoDAO, aluno, telefoneFixo, telefoneCelular,
+                telefoneDAO, this::finish).execute();
     }
 
     private void editaAluno(Telefone telefoneFixo, Telefone telefoneCelular) {

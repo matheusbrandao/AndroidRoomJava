@@ -1,7 +1,6 @@
 package br.com.alura.agenda.asyncTask;
 
 import android.os.AsyncTask;
-import android.widget.TextView;
 
 import br.com.alura.agenda.database.dao.TelefoneDAO;
 import br.com.alura.agenda.model.Telefone;

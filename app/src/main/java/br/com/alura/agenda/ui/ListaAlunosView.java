@@ -23,7 +23,7 @@ public class ListaAlunosView {
         this.context = context;
         this.adapter = new ListaAlunosAdapter(this.context);
         dao = AgendaDatabase.getInstance(context)
-                .getRoomAlunoDAO();
+                .getAlunoDAO();
     }
 
     public void confirmaRemocao(final MenuItem item) {
@@ -47,7 +47,6 @@ public class ListaAlunosView {
 
     private void remove(Aluno aluno) {
         new RemoveAlunoTask(dao, adapter, aluno).execute();
-
     }
 
     public void configuraAdapter(ListView listaDeAlunos) {

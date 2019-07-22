@@ -26,7 +26,9 @@ public class ListaAlunosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
         setTitle(TITULO_APPBAR);
+
         listaAlunosView = new ListaAlunosView(this);
+
         configuraFabNovoAluno();
         configuraLista();
     }
@@ -40,11 +42,9 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-
         int itemId = item.getItemId();
-        if (itemId == R.id.activity_lista_alunos_menu_remover) {
+        if (itemId == R.id.activity_lista_alunos_menu_remover)
             listaAlunosView.confirmaRemocao(item);
-        }
 
         return super.onContextItemSelected(item);
     }

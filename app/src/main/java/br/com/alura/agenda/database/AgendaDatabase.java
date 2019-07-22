@@ -21,15 +21,24 @@ public abstract class AgendaDatabase extends RoomDatabase {
 
     private static final String NOME_BANCO_DE_DADOS = "agenda.db";
 
-    public abstract AlunoDAO getRoomAlunoDAO();
+    public abstract AlunoDAO getAlunoDAO();
     public abstract TelefoneDAO getTelefoneDAO();
 
     public static AgendaDatabase getInstance(Context context){
         return Room
                 .databaseBuilder(context, AgendaDatabase.class, NOME_BANCO_DE_DADOS)
-                //.allowMainThreadQueries() //Utilizado para executar ação na thread principal
-                //.fallbackToDestructiveMigration() //Retorna ao estado inicial do banco
-                //em vez do método acima, utiliza-se o de baixo
+                /*
+                    Caso queira que o Room execute os metodos na thread principial, informar:
+                    .allowMainThreadQueries()
+
+                    Caso contrário, fazer em asyncTask, que é o caso deste projeto.
+                 */
+                /*
+                    Retorna ao estado inicial do branco:
+                    .fallbackToDestructiveMigration()
+
+                    Caso não é possível fazer isso, utilizar as migrations, vide abaixo:
+                 */
                 .addMigrations(TODAS_MIGRATIONS)
                 .build();
     }
