@@ -6,3 +6,4 @@ A fonte de criação foi o curso da alura disponível nos links:
 - Parte 1: https://cursos.alura.com.br/course/android-room
 - Parte 2: https://cursos.alura.com.br/course/android-room-operacoes-assincronas
 
+O projeto simula uma agenda de alunos. 
